@@ -33,7 +33,7 @@ public class SMSUtils {
 	public static void main(String telephone,String param) throws Exception {
 //		java.util.List<String> args = java.util.Arrays.asList(args_);
 //		System.out.println(args);
-		com.aliyun.dysmsapi20170525.Client client = SMSUtils.createClient("LTAI5tKfc1Gu46YKZSCY1Z19", "7Ci8WoERwWM34Q7qZbm20lRz60Y9qz");
+		com.aliyun.dysmsapi20170525.Client client = SMSUtils.createClient("自行填写accessKeyId", "accessKeySecret");
 //		com.aliyun.dysmsapi20170525.Client client = SMSUtils.createClient("accessKeyId", "accessKeySecret");
 		SendSmsRequest sendSmsRequest = new SendSmsRequest()
 				.setSignName("阿里云短信测试")
