@@ -1,0 +1,11 @@
+com\dao\OrderSettingDao.class
+com\dao\OrderDao.class
+com\dao\CheckItemDao.class
+com\service\impl\OrderSettingServiceImpl.class
+com\dao\MemberDao.class
+com\dao\SetmealDao.class
+com\service\impl\OrderServiceImpl.class
+com\service\impl\CheckItemServiceImpl.class
+com\service\impl\SetmealServiceImpl.class
+com\dao\CheckGroupDao.class
+com\service\impl\CheckGroupServiceImpl.class

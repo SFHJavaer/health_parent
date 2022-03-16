@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.CheckItemDao">
+    <!--插入检查项SQL语句-->
+    <insert id="add" parameterType="com.pojo.CheckItem">
+        insert into t_checkitem(code,name,sex,age,price,type,remark,attention)
+                      values
+        (#{code},#{name},#{sex},#{age},#{price},#{type},#{remark},#{attention})
+    </insert>
+    <select id="selectByCondition" parameterType="String" resultType="com.pojo.CheckItem">
+        select * from t_checkitem
+        <!--mybatis提供的动态SQL，使用if标签进行判断，满足条件即会进行下面语句的拼接-->
+        <if test="value != null and value.length > 0">
+            where code = #{value} or name = #{value}
+        </if>
+    </select>
+    <delete id="deleteById" parameterType="Integer" >
+        delete from t_checkitem where id = #{id}
+    </delete>
+    <select id="findCountByCheckItemId" parameterType="Integer" resultType="Long">
+        select checkitem_id from t_checkgroup_checkitem where checkitem_id = #{id}
+    </select>
+    <!--编辑-->
+    <update id="edit" parameterType="com.pojo.CheckItem">
+        update t_checkitem
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="code != null">
+                code = #{code},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="attention != null">
+                attention = #{attention},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+                <!-- 如果动态sql修改的值（占位符）后面有”，“，在sql处理时会自动去掉，-->
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <!--用于编辑检查项时数据回显-->
+    <select id="findById" parameterType="int" resultType="com.pojo.CheckItem">
+    select * from t_checkitem where id = #{id}
+    </select>
+    <!--查所有item，select *-->
+    <select id="findAll" resultType="com.pojo.CheckItem">
+  select * from t_checkitem
+    </select>
+    <!--根据检查组ID查询关联的检查项-->
+    <select id="findCheckItemById" parameterType="int" resultType="com.pojo.CheckItem">
+        select * from t_checkitem
+        where id
+  	    in (select checkitem_id from t_checkgroup_checkitem where checkgroup_id=#{id})
+    </select>
+</mapper>
+
+<!--Ctrl + Y删除一整行，del是向后删除-->
