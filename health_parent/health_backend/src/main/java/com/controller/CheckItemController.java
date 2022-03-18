@@ -8,6 +8,7 @@ import com.entity.Result;
 import com.pojo.CheckItem;
 import com.service.CheckItemService;
 import org.apache.zookeeper.Op;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,8 @@ public class CheckItemController {
     private CheckItemService checkItemService;
 
     //新增
+    //在方法上加权限控制注解,注解参数中为赋权表达式，注意赋的具体权限或者角色外面加单引号不是双引号
+    @PreAuthorize("hasAnyAuthority('CHECKITEM_ADD')")
     @RequestMapping("/add.do")
     public Result add(@RequestBody CheckItem checkItem){
         try {
@@ -33,12 +36,14 @@ public class CheckItemController {
         return new Result(true,MessageConstant.ADD_CHECKITEM_SUCCESS);
     }
     //分页查询
+    @PreAuthorize("hasAnyAuthority('CHECKITEM_QUERY')")
     @RequestMapping("/findPage")
     public PageResult findPage(@RequestBody QueryPageBean queryPageBean){
         PageResult pageResult = checkItemService.pageQuery(queryPageBean);
         return pageResult;
     }
     //删除
+    @PreAuthorize("hasAnyAuthority('CHECKITEM_DELETE')")
     @RequestMapping("/delete")
     public Result delete(Integer id){
         try {
@@ -50,6 +55,7 @@ public class CheckItemController {
         }
         return new Result(true,MessageConstant.DELETE_CHECKITEM_SUCCESS);
     }
+    @PreAuthorize("hasAnyAuthority('CHECKITEM_EDIT')")
     //编辑
     @RequestMapping("/edit")
     public Result edit(@RequestBody CheckItem checkItem){

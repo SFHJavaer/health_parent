@@ -38,7 +38,8 @@
                         <el-dropdown class="avatar-container right-menu-item" trigger="click">
                             <div class="avatar-wrapper">
                                 <img src="../img/user2-160x160.jpg" class="user-avatar">
-                                Jay.Liu
+                                //获取返回给vue对象的username
+                                {{username}}
                             </div>
                             <el-dropdown-menu slot="dropdown">
                                 <el-dropdown-item divided>
@@ -83,6 +84,7 @@
     new Vue({
         el: '#app',
         data:{
+            username:null,
             menuList:[
                 {
                     "path": "1",
@@ -178,6 +180,13 @@
                     ]
                 }
             ]
+        },
+        //钩子函数
+        create(){
+            //首先获取登陆的用户名
+            axios.get('/user/getUsername.do').then((response) =>{
+                this.username = response.data.data;
+            })
         }
     });
     $(function() {
