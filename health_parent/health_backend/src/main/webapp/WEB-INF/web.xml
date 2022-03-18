@@ -3,6 +3,11 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <!--配置整合其他框架的委派过滤器，name必须为springSecurityFilterChain，否则找不到-->
+  <filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
   <!-- 解决post乱码 -->
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
@@ -20,6 +25,11 @@
       <param-value>UTF-8</param-value>
     </init-param>
   </filter>
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!--路径上的/*代表根目录下的资源，子目录资源不包括，只有/**代表下面的多级目录的所有资源-->
   <filter-mapping>
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
