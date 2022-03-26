@@ -329,6 +329,17 @@
                     this.pagination.currentPage = currentPage;
                     this.findPage();
                 },
+                //权限不足提示
+                showMessage(r){
+                    if(r == "Error:Request failed with status code 403"){
+                        //权限不足
+                        this.$message.error("无权限");
+                        return;
+                    }else {
+                        this.$message.error("未知错误");
+                        return;
+                    }
+                },
                 // 删除
                 handleDelete(row) {//row是一行数据，是一个json数据
                     //alert(row.id);
@@ -348,6 +359,9 @@
                                 //调用分页，获取最新分页数据
                                 this.findPage();
                             }
+                        }).catch((r) =>{
+                            //点击取消按钮
+                            this.$message("操作取消");
                         });
                     });
 

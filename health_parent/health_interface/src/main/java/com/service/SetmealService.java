@@ -4,6 +4,8 @@ import com.entity.PageResult;
 import com.pojo.CheckGroup;
 import com.pojo.Setmeal;
 import java.util.List;
+import java.util.Map;
+
 /**
  * 体检套餐服务接口
  */
@@ -12,4 +14,6 @@ public interface SetmealService {
     public PageResult pageQuery(Integer currentPage, Integer pageSize, String queryString);
     public List<Setmeal> findAll();
     public Setmeal findById(int id);
+
+    List<Map<String, Object>> findSetmealCount();
 }

@@ -49,8 +49,9 @@
         </where>
     </select>
     <!--根据预约id查询预约信息，包括体检人信息、套餐信息-->
+    <!--mybatis中写表字段的别名不能省略as-->
     <select id="findById4Detail" parameterType="int" resultType="map">
-  select m.name as member ,s.name as setmeal,o.orderDate as orderDate,o.orderType as orderType
+  select m.name as member ,s.name as setmeal,o.orderDate as orderDate,o.orderType orderType
   from
   t_order o,
   t_member m,

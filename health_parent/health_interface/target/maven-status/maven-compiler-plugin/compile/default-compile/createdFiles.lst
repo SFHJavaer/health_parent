@@ -1,5 +1,8 @@
 com\service\CheckItemService.class
-com\service\OrderService.class
 com\service\SetmealService.class
 com\service\CheckGroupService.class
 com\service\OrderSettingService.class
+com\service\OrderService.class
+com\service\MemberService.class
+com\service\ReportService.class
+com\service\UserService.class

@@ -126,5 +126,8 @@ public class SetmealServiceImpl implements SetmealService {
     public Setmeal findById(int id) {
         return setmealDao.findById(id);
     }
+    public List<Map<String, Object>> findSetmealCount() {
+        return setmealDao.findSetmealCount();
+    }
 }
 //Controller在所在的项目展示模块上创建，谁展示就在哪创

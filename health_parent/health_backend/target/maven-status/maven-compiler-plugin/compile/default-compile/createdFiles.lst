@@ -1,4 +1,9 @@
+com\service\SpringSecurityUserService.class
+com\controller\ReportController.class
+com\service\Solution.class
+com\controller\CheckGroupController.class
+com\controller\UserController.class
 com\controller\CheckItemController.class
 com\controller\OrderSettingController.class
 com\controller\SetmealController.class
-com\controller\CheckGroupController.class
+com\service\Inc.class
