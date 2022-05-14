@@ -8,9 +8,9 @@
 > 后台：● Zk+Dubbo ● Spring+SpringMVC+Mybatis ● Spring security ● Mysql+Redis ● POI ● OSS ● SMS ● Git ● Echarts
 
 ##### 开发流程：
-采用Zookeeper+Dubbo的分布式高可靠性集群的服务注册中心方案<br>
-利用Maven构建项目，基于SSM三层架构实现后端的业务开发与数据库交互<br>
-前端使用axios发送异步请求，同时通过Spring整合Freemarker来生成移动端的静态页面，从而降低服务器动态的请求负载<br>
-Apache POI框架实现Excel报表，利用第三方所提供的SMS和OSS服务来完成短信调用和图片对象存储<br>
-利用Quartz调度框架实现上传图片数据的定时清理任务，使用Mysql作为后台数据库，Redis作为短信缓存<br>
-基于Spring Security实现权限控制和登陆验证，利用Echarts显示用户数据与工作量数据的可视化。<br>
+###### 采用Zookeeper+Dubbo的分布式高可靠性集群的服务注册中心方案<br>
+###### 利用Maven构建项目，基于SSM三层架构实现后端的业务开发与数据库交互<br>
+###### 前端使用axios发送异步请求，同时通过Spring整合Freemarker来生成移动端的静态页面，从而降低服务器动态的请求负载<br>
+###### Apache POI框架实现Excel报表，利用第三方所提供的SMS和OSS服务来完成短信调用和图片对象存储<br>
+###### 利用Quartz调度框架实现上传图片数据的定时清理任务，使用Mysql作为后台数据库，Redis作为短信缓存<br>
+###### 基于Spring Security实现权限控制和登陆验证，利用Echarts显示用户数据与工作量数据的可视化。<br>
