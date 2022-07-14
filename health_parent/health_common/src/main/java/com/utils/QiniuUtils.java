@@ -19,7 +19,7 @@ import java.io.InputStream;
  */
 public class QiniuUtils {
     public  static String accessKey = "sfsYAy8EZMwWQ5bxX22W40fd-xKnwdmf5EIQy0Y-";
-    public  static String secretKey = "vaQoSPetIZaim3dwwtYelcve1fD50gErRoQZLsHu";
+    public  static String secretKey = "your secret";
     public  static String bucket = "qq2428670182";
 
     public static void upload2Qiniu(String filePath,String fileName){
